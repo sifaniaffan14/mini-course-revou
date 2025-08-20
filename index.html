@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <div class="todo-container">
+    <h2>Todo List</h2>
+
+    <div class="input-row">
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Add a todo ...">
+        <small id="taskError" class="error-msg"></small>
+      </div>
+      <div class="input-group">
+        <input type="date" id="dateInput">
+        <small id="dateError" class="error-msg"></small>
+      </div>
+      <button id="addBtn">+</button>
+    </div>
+
+    <div class="actions-row">
+      <select id="filterSelect">
+        <option value="all">All</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Complete">Complete</option>
+      </select>
+      <button class="delete-all" id="deleteAllBtn">🗑️</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>TASK</th>
+          <th>DUE DATE</th>
+          <th>STATUS</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody id="taskTable">
+        <tr>
+          <td colspan="4" class="empty">No task found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal Edit -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h3>Edit Task</h3>
+      <div class="input-group">
+        <input type="text" id="editTaskInput">
+        <small id="editTaskError" class="error-msg"></small>
+      </div>
+      <div class="input-group">
+        <input type="date" id="editDateInput">
+        <small id="editDateError" class="error-msg"></small>
+      </div>
+      <select id="editStatusInput">
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Complete">Complete</option>
+      </select>
+      <div class="modal-actions">
+        <button id="saveEditBtn" class="btn-warning">Save</button>
+        <button id="cancelEditBtn" class="btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
