@@ -45,16 +45,16 @@ addBtn.addEventListener("click", () => {
     taskTable.innerHTML = "";
   }
 
-  const row = document.createElement("tr");
-  row.innerHTML = `
-    <td>${task}</td>
-    <td>${date}</td>
-    <td class="status-pending">Pending</td>
-    <td>
-      <button class="btn-warning" onclick="openEditModal(this)">Edit</button>
-      <button class="btn-danger" onclick="deleteTask(this)">Delete</button>
-    </td>
-  `;
+const row = document.createElement("tr");
+row.innerHTML = `
+  <td>${task}</td>
+  <td>${date}</td>
+  <td><span class="badge badge-pending">Pending</span></td>
+  <td>
+    <button class="btn-warning" onclick="openEditModal(this)">Edit</button>
+    <button class="btn-danger" onclick="deleteTask(this)">Delete</button>
+  </td>
+`;
   taskTable.appendChild(row);
 
   taskInput.value = "";
@@ -91,11 +91,12 @@ saveEditBtn.addEventListener("click", () => {
   editRow.cells[1].innerText = editDateInput.value;
 
   let statusText = editStatusInput.value;
-  editRow.cells[2].innerText = statusText;
-  editRow.cells[2].className =
-    statusText === "Pending" ? "status-pending" :
-    statusText === "In Progress" ? "status-inprogress" : "status-complete";
+  let badgeClass =
+    statusText === "Pending" ? "badge badge-pending" :
+    statusText === "In Progress" ? "badge badge-inprogress" :
+    "badge badge-complete";
 
+  editRow.cells[2].innerHTML = `<span class="${badgeClass}">${statusText}</span>`;
   editModal.style.display = "none";
 });
 
@@ -128,3 +129,16 @@ function checkEmpty() {
     taskTable.innerHTML = `<tr><td colspan="4" class="empty">No task found</td></tr>`;
   }
 }
+
+function setMinDate() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+  const todayStr = `${yyyy}-${mm}-${dd}`;
+
+  dateInput.setAttribute("min", todayStr);
+  editDateInput.setAttribute("min", todayStr);
+}
+
+setMinDate();

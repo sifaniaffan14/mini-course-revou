@@ -1,16 +1,30 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #0a0f1f;
-  color: #fff;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
+  /* Background image */
+  background: url('../background-image.jpg') no-repeat center center/cover;
+  position: relative;
+  color: #fff;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10, 15, 31, 0.7); /* biru gelap transparan */
+  z-index: 0;
 }
 
 .todo-container {
-  background-color: #1e2433;
+  position: relative;
+  z-index: 1; /* supaya container di atas overlay */
+  background-color: rgba(30, 36, 51, 0.9); 
   padding: 20px;
   border-radius: 10px;
   width: 650px;
@@ -194,4 +208,27 @@ td {
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+/* Badge umum */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Warna solid sesuai status */
+.badge-pending {
+  background-color: #f59e0b; /* kuning */
+}
+
+.badge-inprogress {
+  background-color: #3b82f6; /* biru */
+}
+
+.badge-complete {
+  background-color: #22c55e; /* hijau */
 }
