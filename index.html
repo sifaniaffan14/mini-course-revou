@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="todo-container">
     <h2>Todo List</h2>
 
+    <!-- Input Row -->
     <div class="input-row">
       <div class="input-group">
         <input type="text" id="taskInput" placeholder="Add a todo ...">
@@ -22,6 +23,7 @@
       <button id="addBtn">+</button>
     </div>
 
+    <!-- Filter & Delete All -->
     <div class="actions-row">
       <select id="filterSelect">
         <option value="all">All</option>
@@ -29,16 +31,17 @@
         <option value="In Progress">In Progress</option>
         <option value="Complete">Complete</option>
       </select>
-      <button class="delete-all" id="deleteAllBtn">🗑️</button>
+      <button id="deleteAllBtn" class="delete-all">🗑️</button>
     </div>
 
+    <!-- Task Table -->
     <table>
       <thead>
         <tr>
-          <th>TASK</th>
-          <th>DUE DATE</th>
-          <th>STATUS</th>
-          <th>ACTIONS</th>
+          <th>Task</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody id="taskTable">

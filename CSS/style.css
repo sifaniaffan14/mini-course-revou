@@ -5,8 +5,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Background image */
   background: url('../background-image.jpg') no-repeat center center/cover;
   position: relative;
   color: #fff;
@@ -15,20 +13,19 @@ body {
 body::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(10, 15, 31, 0.7); /* biru gelap transparan */
+  inset: 0;
+  background: rgba(10, 15, 31, 0.7);
   z-index: 0;
 }
 
 .todo-container {
   position: relative;
-  z-index: 1; /* supaya container di atas overlay */
-  background-color: rgba(30, 36, 51, 0.9); 
+  z-index: 1;
+  background: rgba(30, 36, 51, 0.9);
   padding: 20px;
   border-radius: 10px;
   width: 650px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
 .todo-container h2 {
@@ -48,17 +45,17 @@ body::before {
   border-radius: 5px;
   border: none;
   outline: none;
-  background-color: #111827;
+  background: #111827;
   color: #fff;
 }
 
 .input-row button {
   padding: 10px 15px;
-  background-color: #6366f1;
+  background: #6366f1;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: white;
+  color: #fff;
   font-size: 16px;
 }
 
@@ -77,20 +74,20 @@ body::before {
 }
 
 .actions-row select {
-  background-color: #374151;
-  color: white;
+  background: #374151;
+  color: #fff;
 }
 
 .actions-row .delete-all {
-  background-color: #ef4444;
-  color: white;
+  background: #ef4444;
+  color: #fff;
   font-size: 18px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #0f172a;
+  background: #0f172a;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -102,7 +99,7 @@ th, td {
 }
 
 th {
-  background-color: #1f2937;
+  background: #1f2937;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 12px;
@@ -119,67 +116,61 @@ td {
   color: #9ca3af;
 }
 
-.status-pending {
-  color: #f59e0b;
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
   font-weight: bold;
+  color: #fff;
 }
-
-.status-inprogress {
-  color: #3b82f6;
-  font-weight: bold;
-}
-
-.status-complete {
-  color: #22c55e;
-  font-weight: bold;
-}
+.badge-pending   { background: #f59e0b; }
+.badge-inprogress { background: #3b82f6; }
+.badge-complete  { background: #22c55e; }
 
 /* Buttons */
 .btn-warning {
-  background-color: #f59e0b;
-  color: white;
+  background: #f59e0b;
+  color: #fff;
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
 }
-
 .btn-danger {
-  background-color: #ef4444;
-  color: white;
+  background: #ef4444;
+  color: #fff;
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
 }
-
 .btn-secondary {
-  background-color: #6b7280;
-  color: white;
+  background: #6b7280;
+  color: #fff;
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
 }
 
+/* Modal */
 .modal {
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  inset: 0;
+  background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
 }
-
 .modal-content {
   background: #1f2937;
   padding: 20px;
   border-radius: 8px;
   width: 300px;
 }
-
 .modal-content input,
 .modal-content select {
   width: 100%;
@@ -191,44 +182,20 @@ td {
   background: #111827;
   color: #fff;
 }
-
 .modal-actions {
   display: flex;
   justify-content: space-between;
 }
 
-/* Error messages */
 .error-msg {
   color: #ef4444;
   font-size: 12px;
-  display: block;
   margin-top: 3px;
+  display: block;
 }
+
 .input-group {
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-
-/* Badge umum */
-.badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-}
-
-/* Warna solid sesuai status */
-.badge-pending {
-  background-color: #f59e0b; /* kuning */
-}
-
-.badge-inprogress {
-  background-color: #3b82f6; /* biru */
-}
-
-.badge-complete {
-  background-color: #22c55e; /* hijau */
 }
